@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DataBase_appl.Properties
+namespace DataBase_app.Properties
 {
 
 

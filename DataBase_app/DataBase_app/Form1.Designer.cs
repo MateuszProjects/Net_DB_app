@@ -1,4 +1,4 @@
-﻿namespace DataBase_appl
+﻿namespace DataBase_app
 {
     partial class Form1
     {
