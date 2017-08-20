@@ -20,11 +20,28 @@ namespace DataBase_app
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            SqlConnection sqlConnection = new SqlConnection("Data Source=MARCO\SQLEXPRESS;Initial Catalog=new_DB;Persist Security Info=True;User ID=sa;Password=***********");
-            SqlCommand sqlCommand = new SqlCommand();
-            sqlCommand.Connection = sqlConnection;
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string pathSql = "Data Source=MARCO\\SQLEXPRESS;Initial Catalog=new_DB;Persist Security Info=True;User ID=sa;Password=***********";
+            SqlConnection sqlConnection = new SqlConnection(pathSql);
+
             sqlConnection.Open();
-            
+            if (sqlConnection.State == System.Data.ConnectionState.Open)
+            {
+                string q = "insert intu values()";
+                SqlCommand sqlCommand = new SqlCommand(q, sqlConnection);
+                sqlCommand.ExecuteNonQuery();
+                MessageBox.Show("Connection success");
+            }
+
             sqlConnection.Close();
         }
     }
