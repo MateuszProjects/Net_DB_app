@@ -36,8 +36,8 @@ namespace DataBase_app
             sqlConnection.Open();
             if (sqlConnection.State == System.Data.ConnectionState.Open)
             {
-                string q = "insert intu values()";
-                SqlCommand sqlCommand = new SqlCommand(q, sqlConnection);
+                string query = "select * from login where id=" + idDane + "and password="+pasword+"";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 sqlCommand.ExecuteNonQuery();
                 MessageBox.Show("Connection success");
             }
