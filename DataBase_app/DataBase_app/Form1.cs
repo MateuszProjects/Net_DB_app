@@ -39,6 +39,7 @@ namespace DataBase_app
                 string query = "select * from login where id=" + idDane + "and password="+pasword+"";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 sqlCommand.ExecuteNonQuery();
+
                 MessageBox.Show("Connection success");
             }
 
