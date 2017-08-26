@@ -36,10 +36,9 @@ namespace DataBase_app
             sqlConnection.Open();
             if (sqlConnection.State == System.Data.ConnectionState.Open)
             {
-                string query = "select * from login where id=" + idDane + "and password="+pasword+"";
+                string query = "select * from user where id=" + idDane + "and password="+pasword+"";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 sqlCommand.ExecuteNonQuery();
-
                 MessageBox.Show("Connection success");
             }
 
