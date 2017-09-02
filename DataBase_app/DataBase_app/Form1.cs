@@ -20,6 +20,8 @@ namespace DataBase_app
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'new_DBDataSet.user' table. You can move, or remove it, as needed.
+            this.userTableAdapter.Fill(this.new_DBDataSet.user);
 
         }
 
@@ -30,19 +32,20 @@ namespace DataBase_app
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string pathSql = "Data Source=MARCO\\SQLEXPRESS;Initial Catalog=new_DB;Persist Security Info=True;User ID=sa;Password=***********";
-            SqlConnection sqlConnection = new SqlConnection(pathSql);
-
+            // insert data
+            SqlConnection sqlConnection = new SqlConnection("Data Source=MARCO\\SQLEXPRESS;Initial Catalog=new_DB;Integrated Security=True");
+            SqlCommand sqlCommand = new SqlCommand();
+            string query = "insert into [new_DB].[dbo].[user] values(" + textBox1.Text+",'"+textBox2.Text+"', '"+textBox3.Text+"')";
+            sqlCommand.Connection = sqlConnection;
             sqlConnection.Open();
-            if (sqlConnection.State == System.Data.ConnectionState.Open)
-            {
-                string query = "select * from user where id=" + idDane + "and password="+pasword+"";
-                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-                sqlCommand.ExecuteNonQuery();
-                MessageBox.Show("Connection success");
-            }
-
+            sqlCommand.CommandText= query;
+            sqlCommand.ExecuteNonQuery();
             sqlConnection.Close();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
